@@ -27,7 +27,17 @@ cp .example.env .development.env
 docker-compose -f docker-compose-dev.yaml up
 ```
 
+####Without Docker
+
+```
+npm install
+cp .example.env .development.env
+nest start --watch
+```
+
 That's it. API service is up and running at port 3000
+
+- Swagger - http://localhost:3000/docs
 
 
 
