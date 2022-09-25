@@ -1,0 +1,30 @@
+version: '3.7'
+services:
+    avocado-user-service:
+        build:
+            context: .
+            dockerfile: Dockerfile-dev
+        volumes:
+            - '.:/usr/src/app'
+            - '/usr/src/app/node_modules'
+        links:
+            - mongodb
+
+    mongodb:
+        image: mongo
+        restart: always
+        volumes:
+            - mongo:/data/db
+        ports:
+            - 27018:27017
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: root
+            MONGODB_USER: developer
+            MONGODB_PASS: avocado123
+            MONGO_DATA_DIR: /data/db
+            MONGO_LOG_DIR: /dev/null
+            MONGO_INITDB_DATABASE: avocado-user
+
+volumes:
+    mongo:
