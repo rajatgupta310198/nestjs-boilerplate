@@ -27,7 +27,7 @@ cp .example.env .development.env
 docker-compose -f docker-compose-dev.yaml up
 ```
 
-###Without Docker
+### Without Docker Installation
 
 ```
 npm install
